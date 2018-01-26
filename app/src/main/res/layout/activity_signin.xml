@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <ImageView
+            android:background="@drawable/bg"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:scaleType="centerCrop" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="220dp"
+        android:layout_marginTop="36dp"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/head"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@mipmap/logo" />
+
+        <TextView
+            android:id="@+id/or"
+            android:layout_width="fill_parent"
+            android:layout_marginTop="16dp"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/linear"
+            android:gravity="center"
+            android:lines="1"
+            android:textAllCaps="true"
+            android:text="@string/next_innovation_store"
+            android:textColor="@color/black" />
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:id="@+id/linear"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/signin"
+        android:layout_marginBottom="16.0dip"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical">
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/email1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colortext"
+            android:textColorHint="@color/colorhint">
+
+            <EditText
+                android:id="@+id/email"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="46.0dip"
+                android:layout_marginRight="46.0dip"
+                android:background="#00000000"
+                android:drawableLeft="@mipmap/envelope"
+                android:drawableStart="@mipmap/envelope"
+                android:drawablePadding="10.0dip"
+                android:gravity="left"
+                android:hint="Email"
+                android:lines="1"
+                android:padding="14.0dip"
+                android:textColor="@color/Tex"
+                android:textColorHint="@color/textSub"
+                android:textSize="@dimen/text" />
+        </android.support.design.widget.TextInputLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1.0dip"
+            android:layout_marginLeft="56.0dip"
+            android:layout_marginRight="56.0dip"
+            android:background="@color/Tex" />
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colortext"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/colorhint"
+            android:textColorHint="@color/colorhint">
+
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="46.0dip"
+                android:layout_marginRight="46.0dip"
+                android:background="#00000000"
+                android:drawableLeft="@mipmap/pass"
+                android:drawableStart="@mipmap/pass"
+                android:drawablePadding="16.0dip"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:padding="14.0dip"
+                android:textColor="@color/Tex"
+                android:textColorHint="@color/textSub"
+                android:textSize="@dimen/text" />
+        </android.support.design.widget.TextInputLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1.0dip"
+            android:layout_marginLeft="56.0dip"
+            android:layout_marginRight="56.0dip"
+            android:background="@color/black" />
+
+        <LinearLayout
+            android:id="@+id/linear4"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20.0dip"
+            android:layout_marginTop="8.0dip"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="50.0dip"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/checkbocremember"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false" />
+
+                <TextView
+                    android:id="@+id/remember"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/remember_me"
+                    android:textColor="@color/Tex"
+                    android:textSize="@dimen/textsub" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/signin"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/height_45dp"
+        android:layout_above="@+id/signinline"
+        android:layout_marginBottom="26.0dip"
+        android:layout_marginLeft="60.0dip"
+        android:layout_marginRight="60.0dip"
+        android:layout_marginTop="16.0dip"
+        android:background="@drawable/bg_signin"
+        android:gravity="center"
+        android:padding="10.0dip"
+        android:text="Sign in"
+        android:textColor="#ffffffff"
+        android:textSize="@dimen/text" />
+
+    <LinearLayout
+        android:id="@+id/signinline"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="35.0dip"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="3.0dip"
+            android:gravity="center"
+            android:text="Not a Member?"
+            android:textColor="@color/Tex"
+            android:textSize="@dimen/textsub" />
+
+        <TextView
+            android:id="@+id/signup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="3.0dip"
+            android:gravity="center"
+            android:text="@string/signup"
+            android:textColor="@color/red"
+            android:textSize="@dimen/textsub" />
+    </LinearLayout>
+</RelativeLayout>

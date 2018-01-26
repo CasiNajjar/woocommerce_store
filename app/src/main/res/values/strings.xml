@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Next Innovation Store</string>
+    <string name="next_innovation">Next Innovation</string>
+    <!--App Message-->
+    <string name="api_retry_error">Please retry!</string>
+    <string name="api_default_error">Something wrong happened!</string>
+    <string name="some_error">Some Error Occurred!</string>
+    <string name="connection_error">Internet connection lost!</string>
+    <!--play store-->
+    <string name="app_google_play_store_link">"https://play.google.com/store/apps/details?id="</string>
+    <string name="app_market_link">"market://details?id="</string>
+    <string name="signup"><b><u>Sign Up</u></b></string>
+    <string name="message_empty_email">Please provide a non empty email!</string>
+    <string name="message_invalid_email">Please provide a valid email!</string>
+    <string name="message_empty_password">Please provide a non empty password!</string>
+    <string name="message_empty_name">Please provide a non empty username!</string>
+    <string name="next_innovation_store">Next Innovation Store</string>
+    <string name="remember_me">Remember me</string>
+    <string name="forgot_pass"><b><u>Forgot Password?</u></b></string>
+    <string name="invalid_credentials">Invalid username/email and/or password.</string>
+    <string name="tandc">Term &amp; Conditions</string>
+    <string name="signin"><b><u>Sign In</u></b></string>
+    <string name="message_success_registration">Registration successful</string>
+    <string name="message_agree_term_conds">You must agree Term &amp; Conditions</string>
+</resources>
