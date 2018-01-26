@@ -4,9 +4,16 @@ import android.util.Base64;
 
 import com.rx2androidnetworking.Rx2AndroidNetworking;
 
+import org.json.JSONArray;
+
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
+import id.co.next_innovation.store.data.db.model.Category;
+import id.co.next_innovation.store.data.network.model.CategoryResponse;
+import id.co.next_innovation.store.data.network.model.ProductRequest;
 import id.co.next_innovation.store.data.network.model.SignRequest;
 import id.co.next_innovation.store.data.network.model.SignResponse;
 import io.reactivex.Observable;
@@ -68,4 +75,24 @@ public class AppApiHelper implements ApiHelper {
                 .getObjectObservable(SignResponse.In.class);
     }
 
+    @Override
+    public Observable<CategoryResponse> getCategories(ProductRequest.Categories request) {
+        return Rx2AndroidNetworking.get(getDecodeUrl() + getApiUrl().categories + getApiUrl().insecureCool)
+                .build()
+                .getObjectObservable(CategoryResponse.class);
+    }
+
+    @Override
+    public Observable<JSONArray> categories(ProductRequest.Categories request) {
+        return Rx2AndroidNetworking.get(getDecodeUrl() + getApiUrl().categories + getApiUrl().insecureCool)
+                .build()
+                .getObjectObservable(JSONArray.class);
+    }
+
+    @Override
+    public Observable<List<Category>> tes(ProductRequest.Categories request) {
+        return Rx2AndroidNetworking.get(getDecodeUrl() + getApiUrl().categories + getApiUrl().insecureCool)
+                .build()
+                .getObjectListObservable(Category.class);
+    }
 }

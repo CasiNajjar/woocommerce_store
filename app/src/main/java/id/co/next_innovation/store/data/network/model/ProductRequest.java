@@ -1,6 +1,4 @@
-package id.co.next_innovation.store.ui.shop.home;
-
-import id.co.next_innovation.store.ui.base.MvpPresenter;
+package id.co.next_innovation.store.data.network.model;
 
 /**
  * Copyright 2017 Winnerawan T
@@ -8,7 +6,18 @@ import id.co.next_innovation.store.ui.base.MvpPresenter;
  * prohibited Proprietary and confidential
  * Written by Winnerawan T <winnerawan@gmail.com>, September 2017
  */
-public interface HomeMvpPresenter<V extends HomeView> extends MvpPresenter<V> {
+public class ProductRequest {
 
-    void fetchCategories();
+    private ProductRequest() {
+
+    }
+
+    public static class Products {
+
+    }
+
+
+    public static class Categories {
+
+    }
 }

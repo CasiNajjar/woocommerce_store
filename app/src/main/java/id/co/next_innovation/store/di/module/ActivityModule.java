@@ -15,6 +15,7 @@ import id.co.next_innovation.store.di.PerActivity;
 import id.co.next_innovation.store.ui.shop.account.AccountMvpPresenter;
 import id.co.next_innovation.store.ui.shop.account.AccountPresenter;
 import id.co.next_innovation.store.ui.shop.account.AccountView;
+import id.co.next_innovation.store.ui.shop.category.CategoryAdapter;
 import id.co.next_innovation.store.ui.shop.home.HomeMvpPresenter;
 import id.co.next_innovation.store.ui.shop.home.HomePresenter;
 import id.co.next_innovation.store.ui.shop.home.HomeView;
@@ -107,6 +108,11 @@ public class ActivityModule {
     AccountMvpPresenter<AccountView> provideAccountPresenter(
             AccountPresenter<AccountView> presenter) {
         return presenter;
+    }
+
+    @Provides
+    CategoryAdapter provideCategoryAdapter() {
+        return new CategoryAdapter(new ArrayList<>());
     }
 
 }

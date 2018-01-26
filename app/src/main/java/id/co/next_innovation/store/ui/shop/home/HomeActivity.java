@@ -2,14 +2,23 @@ package id.co.next_innovation.store.ui.shop.home;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.widget.GridLayout;
+
+import java.util.List;
 
 import javax.inject.Inject;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import id.co.next_innovation.store.R;
+import id.co.next_innovation.store.data.db.model.Category;
 import id.co.next_innovation.store.ui.base.BaseActivity;
 import id.co.next_innovation.store.ui.shop.account.AccountActivity;
+import id.co.next_innovation.store.ui.shop.category.CategoryAdapter;
 
 /**
  * Copyright 2017 Winnerawan T
@@ -22,10 +31,14 @@ public class HomeActivity extends BaseActivity implements HomeView {
     @Inject
     HomeMvpPresenter<HomeView> mPresenter;
 
-    @Override
-    protected void setUp() {
+    @Inject
+    CategoryAdapter mCategoryAdapter;
 
-    }
+    @Inject
+    LinearLayoutManager mLayoutManager;
+
+    @BindView(R.id.recycler_category)
+    RecyclerView mRecyclerCategory;
 
     @OnClick(R.id.f_btn_account)
     void gotoAccount() {
@@ -44,5 +57,19 @@ public class HomeActivity extends BaseActivity implements HomeView {
         mPresenter.onAttach(this);
         setUp();
 
+    }
+
+    @Override
+    protected void setUp() {
+        mRecyclerCategory.setLayoutManager(new GridLayoutManager(getApplicationContext(), 4, GridLayout.VERTICAL, false));
+        mRecyclerCategory.setAdapter(mCategoryAdapter);
+
+        mPresenter.fetchCategories();
+
+    }
+
+    @Override
+    public void showCategories(List<Category> categories) {
+        mCategoryAdapter.addItems(categories);
     }
 }

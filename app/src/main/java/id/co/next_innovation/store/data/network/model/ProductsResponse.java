@@ -17,7 +17,7 @@ import id.co.next_innovation.store.data.db.model.Links;
 import id.co.next_innovation.store.data.db.model.MetaDatum;
 import id.co.next_innovation.store.data.db.model.Tag;
 
-public class CountResponse {
+public class ProductsResponse {
 
     @SerializedName("id")
     @Expose

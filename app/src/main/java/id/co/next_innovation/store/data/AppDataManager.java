@@ -2,15 +2,22 @@ package id.co.next_innovation.store.data;
 
 import android.content.Context;
 
+import org.json.JSONArray;
+
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import id.co.next_innovation.store.data.db.DbHelper;
+import id.co.next_innovation.store.data.db.model.Category;
 import id.co.next_innovation.store.data.db.model.User;
 import id.co.next_innovation.store.data.network.ApiHeader;
 import id.co.next_innovation.store.data.network.ApiHelper;
 import id.co.next_innovation.store.data.network.AppBaseUrl;
 import id.co.next_innovation.store.data.network.ApiUrl;
+import id.co.next_innovation.store.data.network.model.CategoryResponse;
+import id.co.next_innovation.store.data.network.model.ProductRequest;
 import id.co.next_innovation.store.data.network.model.SignRequest;
 import id.co.next_innovation.store.data.network.model.SignResponse;
 import id.co.next_innovation.store.data.prefs.PreferencesHelper;
@@ -101,5 +108,20 @@ class AppDataManager implements DataManager {
     @Override
     public User getUser() {
         return mDbHelper.getUser();
+    }
+
+    @Override
+    public Observable<CategoryResponse> getCategories(ProductRequest.Categories request) {
+        return mApiHelper.getCategories(request);
+    }
+
+    @Override
+    public Observable<JSONArray> categories(ProductRequest.Categories request) {
+        return mApiHelper.categories(request);
+    }
+
+    @Override
+    public Observable<List<Category>> tes(ProductRequest.Categories request) {
+        return mApiHelper.tes(request);
     }
 }
