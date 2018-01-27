@@ -6,6 +6,7 @@ import java.util.List;
 
 import id.co.next_innovation.store.data.db.model.Category;
 import id.co.next_innovation.store.data.db.model.Product;
+import id.co.next_innovation.store.data.db.model.ProductDetail;
 import id.co.next_innovation.store.data.network.model.CategoryResponse;
 import id.co.next_innovation.store.data.network.model.ProductRequest;
 import id.co.next_innovation.store.data.network.model.SignRequest;
@@ -31,4 +32,5 @@ public interface ApiHelper {
     Observable<List<Category>> getCategories(ProductRequest.Categories request);
     Observable<List<Product>> getFeaturedProducts(ProductRequest.Featured request);
     Observable<List<Product>> getProductByCategory(ProductRequest.ProductByCategory request);
+    Observable<ProductDetail> getProductDetail(ProductRequest.ProductDetail request);
 }

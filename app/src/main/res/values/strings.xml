@@ -22,4 +22,6 @@
     <string name="signin"><b><u>Sign In</u></b></string>
     <string name="message_success_registration">Registration successful</string>
     <string name="message_agree_term_conds">You must agree Term &amp; Conditions</string>
+    <string name="code"><u>code</u></string>
+    <string name="product_detail">Product Detail</string>
 </resources>

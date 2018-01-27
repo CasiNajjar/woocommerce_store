@@ -1,5 +1,6 @@
 package id.co.next_innovation.store.ui.shop.product;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -14,6 +15,7 @@ import butterknife.ButterKnife;
 import id.co.next_innovation.store.R;
 import id.co.next_innovation.store.data.db.model.Product;
 import id.co.next_innovation.store.ui.base.BaseActivity;
+import id.co.next_innovation.store.ui.shop.product.detail.ProductDetailActivity;
 import id.co.next_innovation.store.utils.AppLogger;
 
 /**
@@ -22,7 +24,7 @@ import id.co.next_innovation.store.utils.AppLogger;
  * prohibited Proprietary and confidential
  * Written by Winnerawan T <winnerawan@gmail.com>, September 2017
  */
-public class ProductActivity extends BaseActivity implements ProductView {
+public class ProductActivity extends BaseActivity implements ProductView, ProductAdapter.Callback {
 
     @Inject
     ProductMvpPresenter<ProductView> mPresenter;
@@ -41,6 +43,7 @@ public class ProductActivity extends BaseActivity implements ProductView {
         getActivityComponent().inject(this);
 
         setUnBinder(ButterKnife.bind(this));
+        mProductAdapter.setCallback(this);
 
         mPresenter.onAttach(this);
         setUp();
@@ -53,7 +56,6 @@ public class ProductActivity extends BaseActivity implements ProductView {
         Bundle bundle = getIntent().getExtras();
         assert bundle != null;
         int category_id = bundle.getInt("category_id");
-        AppLogger.e("sssssss"+ category_id);
 
         mPresenter.fetchProductsByCategory(category_id);
 
@@ -65,5 +67,12 @@ public class ProductActivity extends BaseActivity implements ProductView {
     @Override
     public void showProducts(List<Product> products) {
         mProductAdapter.addItems(products);
+    }
+
+    @Override
+    public void onProductSelected(int product_id) {
+        Intent i = new Intent(this, ProductDetailActivity.class);
+        i.putExtra("product_id", product_id);
+        startActivity(i);
     }
 }

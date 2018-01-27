@@ -12,6 +12,7 @@ import javax.inject.Singleton;
 import id.co.next_innovation.store.data.db.DbHelper;
 import id.co.next_innovation.store.data.db.model.Category;
 import id.co.next_innovation.store.data.db.model.Product;
+import id.co.next_innovation.store.data.db.model.ProductDetail;
 import id.co.next_innovation.store.data.db.model.User;
 import id.co.next_innovation.store.data.network.ApiHeader;
 import id.co.next_innovation.store.data.network.ApiHelper;
@@ -124,5 +125,10 @@ class AppDataManager implements DataManager {
     @Override
     public Observable<List<Product>> getProductByCategory(ProductRequest.ProductByCategory request) {
         return mApiHelper.getProductByCategory(request);
+    }
+
+    @Override
+    public Observable<ProductDetail> getProductDetail(ProductRequest.ProductDetail request) {
+        return mApiHelper.getProductDetail(request);
     }
 }

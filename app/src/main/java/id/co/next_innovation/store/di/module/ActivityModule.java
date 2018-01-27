@@ -25,6 +25,9 @@ import id.co.next_innovation.store.ui.shop.product.ProductAdapter;
 import id.co.next_innovation.store.ui.shop.product.ProductMvpPresenter;
 import id.co.next_innovation.store.ui.shop.product.ProductPresenter;
 import id.co.next_innovation.store.ui.shop.product.ProductView;
+import id.co.next_innovation.store.ui.shop.product.detail.ProductDetailMvpPresenter;
+import id.co.next_innovation.store.ui.shop.product.detail.ProductDetailPresenter;
+import id.co.next_innovation.store.ui.shop.product.detail.ProductDetailView;
 import id.co.next_innovation.store.ui.sign.in.SignInMvpPresenter;
 import id.co.next_innovation.store.ui.sign.in.SignInPresenter;
 import id.co.next_innovation.store.ui.sign.in.SignInView;
@@ -138,6 +141,11 @@ public class ActivityModule {
         return presenter;
     }
 
-
+    @Provides
+    @PerActivity
+    ProductDetailMvpPresenter<ProductDetailView> provideProductDetailPresenter(
+            ProductDetailPresenter<ProductDetailView> presenter) {
+        return presenter;
+    }
 
 }

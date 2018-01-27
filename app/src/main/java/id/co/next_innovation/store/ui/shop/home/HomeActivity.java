@@ -95,7 +95,7 @@ public class HomeActivity extends BaseActivity implements HomeView, CategoryAdap
 
     @Override
     public void onCategorySelected(int category_id) {
-        Intent i = new Intent(getApplicationContext(), ProductActivity.class);
+        Intent i = new Intent(this, ProductActivity.class);
         i.putExtra("category_id", category_id);
         startActivity(i);
     }

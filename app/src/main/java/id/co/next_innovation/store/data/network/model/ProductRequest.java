@@ -23,6 +23,24 @@ public class ProductRequest {
 
     }
 
+    public static class ProductDetail {
+        @SerializedName("product_id")
+        @Expose
+        private int product_id;
+
+        public ProductDetail(int product_id) {
+            this.product_id = product_id;
+        }
+
+        public int getProduct_id() {
+            return product_id;
+        }
+
+        public void setProduct_id(int product_id) {
+            this.product_id = product_id;
+        }
+    }
+
     public static class ProductByCategory {
         @SerializedName("category")
         @Expose

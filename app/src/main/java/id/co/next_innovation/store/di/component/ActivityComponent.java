@@ -6,6 +6,7 @@ import id.co.next_innovation.store.di.module.ActivityModule;
 import id.co.next_innovation.store.ui.shop.account.AccountActivity;
 import id.co.next_innovation.store.ui.shop.home.HomeActivity;
 import id.co.next_innovation.store.ui.shop.product.ProductActivity;
+import id.co.next_innovation.store.ui.shop.product.detail.ProductDetailActivity;
 import id.co.next_innovation.store.ui.sign.in.SignInActivity;
 import id.co.next_innovation.store.ui.sign.up.SignUpActivity;
 import id.co.next_innovation.store.ui.splash.SplashActivity;
@@ -27,4 +28,5 @@ public interface ActivityComponent {
     void inject(HomeActivity activity);
     void inject(AccountActivity activity);
     void inject(ProductActivity activity);
+    void inject(ProductDetailActivity activity);
 }

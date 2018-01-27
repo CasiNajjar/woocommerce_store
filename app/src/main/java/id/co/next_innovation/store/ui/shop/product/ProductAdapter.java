@@ -84,7 +84,7 @@ public class ProductAdapter extends RecyclerView.Adapter<BaseViewHolder> {
     }
 
     public interface Callback {
-        void onProductSelected();
+        void onProductSelected(int product_id);
     }
 
     public class ViewHolder extends BaseViewHolder {
@@ -134,7 +134,7 @@ public class ProductAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
             itemView.setOnClickListener(view -> {
                 if (product.getId()!=null) {
-
+                    mCallback.onProductSelected(product.getId());
                 }
             });
         }
