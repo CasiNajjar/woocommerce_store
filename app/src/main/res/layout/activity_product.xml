@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#fff2f3f4">
+
+    <!--<include-->
+        <!--android:id="@+id/toolbar"-->
+        <!--layout="@layout/toolbar" />-->
+
+    <LinearLayout
+        android:id="@+id/linear1"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/height_50dp"
+        android:layout_below="@id/toolbar"
+        android:background="@drawable/toolbarbg"
+        android:orientation="horizontal"
+        android:paddingBottom="16.0dip"
+        android:paddingTop="10.0dip">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="30.0dip"
+            android:layout_marginRight="30.0dip"
+            android:layout_weight="1.0"
+            android:drawableLeft="@drawable/arrowupdown"
+            android:gravity="center"
+            android:text="STORY BY"
+            android:textColor="@color/Tex" />
+
+        <View
+            android:layout_width="1.0dip"
+            android:layout_height="21.0dip"
+            android:background="@color/colordevider" />
+
+        <TextView
+            android:id="@+id/refine"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="30.0dip"
+            android:layout_marginRight="30.0dip"
+            android:layout_weight="1.0"
+            android:drawableLeft="@drawable/refine"
+            android:drawablePadding="10.0dip"
+            android:gravity="center"
+            android:text="REFINE"
+            android:textColor="@color/Tex" />
+
+        <View
+            android:layout_width="1.0dip"
+            android:layout_height="21.0dip"
+            android:layout_marginRight="30.0dip"
+            android:background="@color/colordevider" />
+
+        <ImageView
+            android:id="@+id/gridviewicon"
+            android:layout_width="15.0dip"
+            android:layout_height="15.0dip"
+            android:layout_gravity="center"
+            android:layout_marginRight="20.0dip"
+            android:background="@drawable/gridviewicon"
+            android:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/listviewicon"
+            android:layout_width="15.0dip"
+            android:layout_height="15.0dip"
+            android:layout_gravity="center"
+            android:layout_marginRight="20.0dip"
+            android:background="@drawable/listviewicon"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_below="@id/linear1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scrollbars="none">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_products"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5.0dip"
+                android:background="#fff2f3f4"
+                android:isScrollContainer="false"
+                android:numColumns="2"
+                android:stretchMode="columnWidth"
+                android:verticalSpacing="5.0dip"
+                android:visibility="visible" />
+
+            <!--<id.co.next_innovation.store.ui.helper.ExpandableHeightListView-->
+                <!--android:id="@+id/listview"-->
+                <!--android:layout_width="fill_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:background="#fff2f3f4"-->
+                <!--android:visibility="gone" />-->
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+    </LinearLayout>
+</RelativeLayout>

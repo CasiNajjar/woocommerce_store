@@ -20,6 +20,10 @@ android {
             }
         }
 
+        lintOptions {
+            abortOnError false
+        }
+
     }
     buildTypes {
         debug {
@@ -53,7 +57,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-    implementation 'com.android.support:appcompat-v7:27.0.1'
+    implementation "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     implementation("com.mikepenz:materialdrawer:6.0.1@aar") {
         transitive = true
@@ -117,8 +121,9 @@ dependencies {
     compile 'com.ogaclejapan.smarttablayout:utils-v4:1.6.1@aar'
     compile 'com.jaredrummler:material-spinner:1.2.2'
     compile 'se.akerfeldt:okhttp-signpost:1.1.0'
-    compile 'com.squareup.okhttp3:okhttp:3.0.0-RC1'
+    compile 'com.squareup.okhttp3:okhttp:3.7.0'
     compile 'oauth.signpost:signpost-core:1.2.1.2'
+    //compile 'com.github.Yalantis:SearchFilter:v1.0.4'
     //Optional: see how to use the utility.
     //compile 'com.ogaclejapan.smarttablayout:utils-v13:1.6.1@aar'
 }

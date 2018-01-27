@@ -91,4 +91,12 @@ public class AppApiHelper implements ApiHelper {
                 .build()
                 .getObjectListObservable(Product.class);
     }
+
+    @Override
+    public Observable<List<Product>> getProductByCategory(ProductRequest.ProductByCategory request) {
+        return Rx2AndroidNetworking.get(getDecodeUrl() + getApiUrl().products)
+                .addQueryParameter("category", String.valueOf(request.getCategory()))
+                .build()
+                .getObjectListObservable(Product.class);
+    }
 }

@@ -10,4 +10,6 @@ import id.co.next_innovation.store.ui.base.MvpPresenter;
  * Written by Winnerawan T <winnerawan@gmail.com>, September 2017
  */
 public interface ProductMvpPresenter<V extends ProductView> extends MvpPresenter<V> {
+
+    void fetchProductsByCategory(int category_id);
 }

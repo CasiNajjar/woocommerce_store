@@ -21,6 +21,8 @@ import id.co.next_innovation.store.ui.base.BaseActivity;
 import id.co.next_innovation.store.ui.shop.account.AccountActivity;
 import id.co.next_innovation.store.ui.shop.category.CategoryAdapter;
 import id.co.next_innovation.store.ui.shop.product.FeaturedProductAdapter;
+import id.co.next_innovation.store.ui.shop.product.ProductActivity;
+import id.co.next_innovation.store.utils.AppLogger;
 
 /**
  * Copyright 2017 Winnerawan T
@@ -28,7 +30,7 @@ import id.co.next_innovation.store.ui.shop.product.FeaturedProductAdapter;
  * prohibited Proprietary and confidential
  * Written by Winnerawan T <winnerawan@gmail.com>, September 2017
  */
-public class HomeActivity extends BaseActivity implements HomeView {
+public class HomeActivity extends BaseActivity implements HomeView, CategoryAdapter.Callback {
 
     @Inject
     HomeMvpPresenter<HomeView> mPresenter;
@@ -61,6 +63,7 @@ public class HomeActivity extends BaseActivity implements HomeView {
         getActivityComponent().inject(this);
 
         setUnBinder(ButterKnife.bind(this));
+        mCategoryAdapter.setCallback(this);
 
         mPresenter.onAttach(this);
         setUp();
@@ -88,5 +91,12 @@ public class HomeActivity extends BaseActivity implements HomeView {
     @Override
     public void showFeaturedProducts(List<Product> products) {
         mFeaturedProductAdapter.addItems(products);
+    }
+
+    @Override
+    public void onCategorySelected(int category_id) {
+        Intent i = new Intent(getApplicationContext(), ProductActivity.class);
+        i.putExtra("category_id", category_id);
+        startActivity(i);
     }
 }

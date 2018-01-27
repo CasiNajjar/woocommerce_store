@@ -10,6 +10,7 @@ import dagger.Provides;
 
 import java.util.ArrayList;
 
+import id.co.next_innovation.store.data.db.model.Product;
 import id.co.next_innovation.store.di.ActivityContext;
 import id.co.next_innovation.store.di.PerActivity;
 import id.co.next_innovation.store.ui.shop.account.AccountMvpPresenter;
@@ -20,6 +21,10 @@ import id.co.next_innovation.store.ui.shop.home.HomeMvpPresenter;
 import id.co.next_innovation.store.ui.shop.home.HomePresenter;
 import id.co.next_innovation.store.ui.shop.home.HomeView;
 import id.co.next_innovation.store.ui.shop.product.FeaturedProductAdapter;
+import id.co.next_innovation.store.ui.shop.product.ProductAdapter;
+import id.co.next_innovation.store.ui.shop.product.ProductMvpPresenter;
+import id.co.next_innovation.store.ui.shop.product.ProductPresenter;
+import id.co.next_innovation.store.ui.shop.product.ProductView;
 import id.co.next_innovation.store.ui.sign.in.SignInMvpPresenter;
 import id.co.next_innovation.store.ui.sign.in.SignInPresenter;
 import id.co.next_innovation.store.ui.sign.in.SignInView;
@@ -120,5 +125,19 @@ public class ActivityModule {
     FeaturedProductAdapter provideFeaturedProductAdapter() {
         return new FeaturedProductAdapter(new ArrayList<>());
     }
+
+    @Provides
+    ProductAdapter provideProductsAdapter() {
+        return new ProductAdapter(new ArrayList<>());
+    }
+
+    @Provides
+    @PerActivity
+    ProductMvpPresenter<ProductView> provideProductPresenter(
+            ProductPresenter<ProductView> presenter) {
+        return presenter;
+    }
+
+
 
 }

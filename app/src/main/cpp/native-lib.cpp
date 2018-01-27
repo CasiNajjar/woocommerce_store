@@ -32,4 +32,9 @@ Java_id_co_next_1innovation_store_data_network_ApiUrl_invokeFeturedProductsUrl(J
     // -> wp-json/wc/v2/products?featured=true
     return env->NewStringUTF("d3AtanNvbi93Yy92Mi9wcm9kdWN0cz9mZWF0dXJlZD10cnVl");
 }
+JNIEXPORT jstring JNICALL
+Java_id_co_next_1innovation_store_data_network_ApiUrl_invokeProductsUrl(JNIEnv *env, jobject instance) {
+    // -> wp-json/wc/v2/products
+    return env->NewStringUTF("d3AtanNvbi93Yy92Mi9wcm9kdWN0cw==");
+}
 }

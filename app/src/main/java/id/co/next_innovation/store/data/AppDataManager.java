@@ -120,4 +120,9 @@ class AppDataManager implements DataManager {
     public Observable<List<Product>> getFeaturedProducts(ProductRequest.Featured request) {
         return mApiHelper.getFeaturedProducts(request);
     }
+
+    @Override
+    public Observable<List<Product>> getProductByCategory(ProductRequest.ProductByCategory request) {
+        return mApiHelper.getProductByCategory(request);
+    }
 }

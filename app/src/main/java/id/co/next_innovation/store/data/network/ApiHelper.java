@@ -30,4 +30,5 @@ public interface ApiHelper {
     Observable<SignResponse.Up> signUp(SignRequest.Up request);
     Observable<List<Category>> getCategories(ProductRequest.Categories request);
     Observable<List<Product>> getFeaturedProducts(ProductRequest.Featured request);
+    Observable<List<Product>> getProductByCategory(ProductRequest.ProductByCategory request);
 }

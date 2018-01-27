@@ -103,6 +103,6 @@ public final class CommonUtils {
         formatRp.setMonetaryDecimalSeparator(',');
         formatRp.setGroupingSeparator('.');
 
-        return kursIndonesia.format(Double.parseDouble(price));
+        return kursIndonesia.format(Double.valueOf(price));
     }
 }

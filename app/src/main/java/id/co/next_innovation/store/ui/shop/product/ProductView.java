@@ -1,5 +1,8 @@
 package id.co.next_innovation.store.ui.shop.product;
 
+import java.util.List;
+
+import id.co.next_innovation.store.data.db.model.Product;
 import id.co.next_innovation.store.ui.base.MvpView;
 
 /**
@@ -10,5 +13,5 @@ import id.co.next_innovation.store.ui.base.MvpView;
  */
 public interface ProductView extends MvpView {
 
-
+    void showProducts(List<Product> products);
 }
