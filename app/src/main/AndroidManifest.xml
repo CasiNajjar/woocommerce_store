@@ -25,6 +25,7 @@
         <activity android:name=".ui.sign.up.SignUpActivity"/>
         <activity android:name=".ui.shop.home.HomeActivity"/>
         <activity android:name=".ui.shop.account.AccountActivity"/>
+        <activity android:name=".ui.shop.product.ProductActivity"/>
 
     </application>
 </manifest>

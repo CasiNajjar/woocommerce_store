@@ -12,6 +12,7 @@ import javax.inject.Inject;
 
 import id.co.next_innovation.store.data.DataManager;
 import id.co.next_innovation.store.data.db.model.Category;
+import id.co.next_innovation.store.data.db.model.Product;
 import id.co.next_innovation.store.data.network.model.ProductRequest;
 import id.co.next_innovation.store.ui.base.BasePresenter;
 import id.co.next_innovation.store.utils.AppLogger;
@@ -36,11 +37,11 @@ public class HomePresenter<V extends HomeView> extends BasePresenter<V> implemen
     public void fetchCategories() {
         getMvpView().showLoading();
 
-        getCompositeDisposable().add(getDataManager().tes(new ProductRequest.Categories())
+        getCompositeDisposable().add(getDataManager().getCategories(new ProductRequest.Categories())
                 .observeOn(getSchedulerProvider().ui())
                 .subscribeOn(getSchedulerProvider().io())
                 .subscribe(categories -> {
-                    if (categories!=null) {
+                    if (categories != null) {
                         getMvpView().showCategories(categories);
                     }
                     getMvpView().hideLoading();
@@ -55,5 +56,34 @@ public class HomePresenter<V extends HomeView> extends BasePresenter<V> implemen
                         handleApiError(anError);
                     }
                 }));
+    }
+
+    @Override
+    public void fetchFeaturedProducts() {
+
+        getCompositeDisposable().add(getDataManager().getFeaturedProducts(new ProductRequest.Featured())
+                .observeOn(getSchedulerProvider().ui())
+                .subscribeOn(getSchedulerProvider().io())
+                .subscribe(productList -> {
+                    if (productList!=null) {
+                        AppLogger.e("success");
+                        getMvpView().showFeaturedProducts(productList);
+                    }
+                }, throwable -> {
+                    AppLogger.e("error");
+                    AppLogger.e(throwable.getMessage());
+                    AppLogger.e("ss"+throwable.getLocalizedMessage());
+
+                    if (!isViewAttached()) {
+                        return;
+                    }
+                    getMvpView().hideLoading();
+                    // handle the error here
+                    if (throwable instanceof ANError) {
+                        ANError anError = (ANError) throwable;
+                        handleApiError(anError);
+                    }
+                }));
+
     }
 }

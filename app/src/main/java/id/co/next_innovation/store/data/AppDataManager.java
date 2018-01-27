@@ -11,6 +11,7 @@ import javax.inject.Singleton;
 
 import id.co.next_innovation.store.data.db.DbHelper;
 import id.co.next_innovation.store.data.db.model.Category;
+import id.co.next_innovation.store.data.db.model.Product;
 import id.co.next_innovation.store.data.db.model.User;
 import id.co.next_innovation.store.data.network.ApiHeader;
 import id.co.next_innovation.store.data.network.ApiHelper;
@@ -111,17 +112,12 @@ class AppDataManager implements DataManager {
     }
 
     @Override
-    public Observable<CategoryResponse> getCategories(ProductRequest.Categories request) {
+    public Observable<List<Category>> getCategories(ProductRequest.Categories request) {
         return mApiHelper.getCategories(request);
     }
 
     @Override
-    public Observable<JSONArray> categories(ProductRequest.Categories request) {
-        return mApiHelper.categories(request);
-    }
-
-    @Override
-    public Observable<List<Category>> tes(ProductRequest.Categories request) {
-        return mApiHelper.tes(request);
+    public Observable<List<Product>> getFeaturedProducts(ProductRequest.Featured request) {
+        return mApiHelper.getFeaturedProducts(request);
     }
 }

@@ -19,6 +19,7 @@ import id.co.next_innovation.store.ui.shop.category.CategoryAdapter;
 import id.co.next_innovation.store.ui.shop.home.HomeMvpPresenter;
 import id.co.next_innovation.store.ui.shop.home.HomePresenter;
 import id.co.next_innovation.store.ui.shop.home.HomeView;
+import id.co.next_innovation.store.ui.shop.product.FeaturedProductAdapter;
 import id.co.next_innovation.store.ui.sign.in.SignInMvpPresenter;
 import id.co.next_innovation.store.ui.sign.in.SignInPresenter;
 import id.co.next_innovation.store.ui.sign.in.SignInView;
@@ -113,6 +114,11 @@ public class ActivityModule {
     @Provides
     CategoryAdapter provideCategoryAdapter() {
         return new CategoryAdapter(new ArrayList<>());
+    }
+
+    @Provides
+    FeaturedProductAdapter provideFeaturedProductAdapter() {
+        return new FeaturedProductAdapter(new ArrayList<>());
     }
 
 }

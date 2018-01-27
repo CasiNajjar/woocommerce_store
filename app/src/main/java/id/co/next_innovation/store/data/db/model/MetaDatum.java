@@ -17,9 +17,9 @@ public class MetaDatum {
     @SerializedName("key")
     @Expose
     private String key;
-    @SerializedName("value")
-    @Expose
-    private String value;
+//    @SerializedName("value")
+//    @Expose
+//    private String value;
 
     public Integer getId() {
         return id;
@@ -37,13 +37,13 @@ public class MetaDatum {
         this.key = key;
     }
 
-    public String getValue() {
-        return value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
+//    public String getValue() {
+//        return value;
+//    }
+//
+//    public void setValue(String value) {
+//        this.value = value;
+//    }
 
 }
 

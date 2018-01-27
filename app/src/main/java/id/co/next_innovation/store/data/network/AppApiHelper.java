@@ -11,7 +11,9 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
+import dagger.Provides;
 import id.co.next_innovation.store.data.db.model.Category;
+import id.co.next_innovation.store.data.db.model.Product;
 import id.co.next_innovation.store.data.network.model.CategoryResponse;
 import id.co.next_innovation.store.data.network.model.ProductRequest;
 import id.co.next_innovation.store.data.network.model.SignRequest;
@@ -31,6 +33,7 @@ public class AppApiHelper implements ApiHelper {
     private ApiHeader mApiHeader;
     private AppBaseUrl mBaseUrl;
     private ApiUrl mApiUrl;
+    private String insecureCool = "?&insecure=cool";
 
     @Inject
     public AppApiHelper(ApiHeader apiHeader, AppBaseUrl baseUrl, ApiUrl apiUrl) {
@@ -69,30 +72,23 @@ public class AppApiHelper implements ApiHelper {
 
     @Override
     public Observable<SignResponse.In> signIn(SignRequest.In request) {
-        return Rx2AndroidNetworking.post(getDecodeUrl() + getApiUrl().signIn + getApiUrl().insecureCool)
+        return Rx2AndroidNetworking.post(getDecodeUrl() + getApiUrl().signIn + insecureCool)
                 .addBodyParameter(request)
                 .build()
                 .getObjectObservable(SignResponse.In.class);
     }
 
     @Override
-    public Observable<CategoryResponse> getCategories(ProductRequest.Categories request) {
-        return Rx2AndroidNetworking.get(getDecodeUrl() + getApiUrl().categories + getApiUrl().insecureCool)
-                .build()
-                .getObjectObservable(CategoryResponse.class);
-    }
-
-    @Override
-    public Observable<JSONArray> categories(ProductRequest.Categories request) {
-        return Rx2AndroidNetworking.get(getDecodeUrl() + getApiUrl().categories + getApiUrl().insecureCool)
-                .build()
-                .getObjectObservable(JSONArray.class);
-    }
-
-    @Override
-    public Observable<List<Category>> tes(ProductRequest.Categories request) {
-        return Rx2AndroidNetworking.get(getDecodeUrl() + getApiUrl().categories + getApiUrl().insecureCool)
+    public Observable<List<Category>> getCategories(ProductRequest.Categories request) {
+        return Rx2AndroidNetworking.get(getDecodeUrl() + getApiUrl().categories + insecureCool)
                 .build()
                 .getObjectListObservable(Category.class);
+    }
+
+    @Override
+    public Observable<List<Product>> getFeaturedProducts(ProductRequest.Featured request) {
+        return Rx2AndroidNetworking.get(getDecodeUrl() + getApiUrl().featuredProducts)
+                .build()
+                .getObjectListObservable(Product.class);
     }
 }

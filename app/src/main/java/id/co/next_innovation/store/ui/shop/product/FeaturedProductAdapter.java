@@ -1,6 +1,7 @@
-package id.co.next_innovation.store.ui.shop.category;
+package id.co.next_innovation.store.ui.shop.product;
 
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,15 +10,16 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
-
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import id.co.next_innovation.store.R;
 import id.co.next_innovation.store.data.db.model.Category;
+import id.co.next_innovation.store.data.db.model.Product;
 import id.co.next_innovation.store.ui.base.BaseViewHolder;
 import id.co.next_innovation.store.utils.AppLogger;
+import id.co.next_innovation.store.utils.CommonUtils;
 
 /**
  * Copyright 2017 Winnerawan T
@@ -25,18 +27,18 @@ import id.co.next_innovation.store.utils.AppLogger;
  * prohibited Proprietary and confidential
  * Written by Winnerawan T <winnerawan@gmail.com>, September 2017
  */
-public class CategoryAdapter extends RecyclerView.Adapter<BaseViewHolder> {
+public class FeaturedProductAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
     public static final int VIEW_TYPE_EMPTY = 0;
     public static final int VIEW_TYPE_NORMAL = 1;
 
     private Callback mCallback;
-    private List<Category> categories;
+    private List<Product> products;
     private int lastPosition = -1;
 
-    public CategoryAdapter(List<Category> mCat) {
+    public FeaturedProductAdapter(List<Product> mProd) {
         //mAnimator = new RecyclerViewAnimator(mRecyclerView);
-        categories = mCat;
+        products = mProd;
     }
 
     public void setCallback(Callback callback) {
@@ -53,17 +55,17 @@ public class CategoryAdapter extends RecyclerView.Adapter<BaseViewHolder> {
         switch (viewType) {
             case VIEW_TYPE_NORMAL:
                 return new ViewHolder(
-                        LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_home_category, parent, false));
+                        LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_featured_product, parent, false));
             case VIEW_TYPE_EMPTY:
             default:
                 return new EmptyViewHolder(
-                        LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_home_category, parent, false));
+                        LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_featured_product, parent, false));
         }
     }
 
     @Override
     public int getItemViewType(int position) {
-        if (categories != null && categories.size() > 0) {
+        if (products != null && products.size() > 0) {
             return VIEW_TYPE_NORMAL;
         } else {
             return VIEW_TYPE_EMPTY;
@@ -72,15 +74,15 @@ public class CategoryAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
     @Override
     public int getItemCount() {
-        if (categories != null && categories.size() > 0) {
-            return categories.size();
+        if (products != null && products.size() > 0) {
+            return products.size();
         } else {
             return 1;
         }
     }
 
-    public void addItems(List<Category> categoryList) {
-        categories.addAll(categoryList);
+    public void addItems(List<Product> productList) {
+        products.addAll(productList);
         notifyDataSetChanged();
     }
 
@@ -90,11 +92,14 @@ public class CategoryAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
     public class ViewHolder extends BaseViewHolder {
 
-        @BindView(R.id.category_image)
+        @BindView(R.id.product_image)
         ImageView mImageView;
-        @BindView(R.id.category_name)
+        @BindView(R.id.product_name)
         TextView mName;
-
+        @BindView(R.id.product_price)
+        TextView mRegulerPrice;
+        @BindView(R.id.product_cut_price)
+        TextView mSalePrice;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -109,22 +114,29 @@ public class CategoryAdapter extends RecyclerView.Adapter<BaseViewHolder> {
         public void onBind(int position) {
             super.onBind(position);
 
-            final Category category = categories.get(position);
+            final Product product = products.get(position);
 
-            if (category.getImage()!=null) {
+            if (product.getImages()!=null) {
                 Picasso.with(itemView.getContext())
-                        .load(category.getImage().getSrc())
+                        .load(product.getImages().get(0).getSrc())
                         .error(R.drawable.category_placeholder)
                         .placeholder(R.drawable.anim_image_placeholder )
                         .into(mImageView);
             }
 
-            if (category.getName()!=null) {
-                mName.setText(category.getName());
+            if (product.getName()!=null) {
+                mName.setText(product.getName());
+            }
+
+            if (product.getRegularPrice()!=null) {
+                mRegulerPrice.setText(CommonUtils.formatRP(product.getRegularPrice()));
+            }
+            if (product.getSalePrice()!=null) {
+                mSalePrice.setText(CommonUtils.formatRP(product.getSalePrice()));
             }
 
             itemView.setOnClickListener(view -> {
-                if (category.getId()!=null) {
+                if (product.getId()!=null) {
 //                    Intent intent = new Intent(itemView.getContext(), DetailActivty.class);
 //                    intent.putExtra("name", category.getName());
 //                    intent.putExtra("description", category.getDescription());

@@ -5,6 +5,7 @@ import org.json.JSONArray;
 import java.util.List;
 
 import id.co.next_innovation.store.data.db.model.Category;
+import id.co.next_innovation.store.data.db.model.Product;
 import id.co.next_innovation.store.data.network.model.CategoryResponse;
 import id.co.next_innovation.store.data.network.model.ProductRequest;
 import id.co.next_innovation.store.data.network.model.SignRequest;
@@ -27,7 +28,6 @@ public interface ApiHelper {
 
     Observable<SignResponse.In> signIn(SignRequest.In request);
     Observable<SignResponse.Up> signUp(SignRequest.Up request);
-    Observable<CategoryResponse> getCategories(ProductRequest.Categories request);
-    Observable<JSONArray> categories(ProductRequest.Categories request);
-    Observable<List<Category>> tes(ProductRequest.Categories request);
+    Observable<List<Category>> getCategories(ProductRequest.Categories request);
+    Observable<List<Product>> getFeaturedProducts(ProductRequest.Featured request);
 }

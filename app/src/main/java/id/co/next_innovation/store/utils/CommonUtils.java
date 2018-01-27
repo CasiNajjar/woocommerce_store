@@ -13,6 +13,8 @@ import com.wang.avi.AVLoadingIndicatorView;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -91,5 +93,16 @@ public final class CommonUtils {
     }
     public static String priceFormater(long s, String currency) {
         return (currency + s).replaceAll("(\\d)(?=(\\d{3})+(?!\\d))", "$1.");
+    }
+
+    public static String formatRP(String price) {
+        DecimalFormat kursIndonesia = (DecimalFormat) DecimalFormat.getCurrencyInstance();
+        DecimalFormatSymbols formatRp = new DecimalFormatSymbols();
+
+        formatRp.setCurrencySymbol("Rp. ");
+        formatRp.setMonetaryDecimalSeparator(',');
+        formatRp.setGroupingSeparator('.');
+
+        return kursIndonesia.format(Double.parseDouble(price));
     }
 }

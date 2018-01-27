@@ -16,9 +16,11 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import id.co.next_innovation.store.R;
 import id.co.next_innovation.store.data.db.model.Category;
+import id.co.next_innovation.store.data.db.model.Product;
 import id.co.next_innovation.store.ui.base.BaseActivity;
 import id.co.next_innovation.store.ui.shop.account.AccountActivity;
 import id.co.next_innovation.store.ui.shop.category.CategoryAdapter;
+import id.co.next_innovation.store.ui.shop.product.FeaturedProductAdapter;
 
 /**
  * Copyright 2017 Winnerawan T
@@ -35,10 +37,16 @@ public class HomeActivity extends BaseActivity implements HomeView {
     CategoryAdapter mCategoryAdapter;
 
     @Inject
+    FeaturedProductAdapter mFeaturedProductAdapter;
+
+    @Inject
     LinearLayoutManager mLayoutManager;
 
     @BindView(R.id.recycler_category)
     RecyclerView mRecyclerCategory;
+
+    @BindView(R.id.recycler_featured_products)
+    RecyclerView mRecyclerFeaturedProduct;
 
     @OnClick(R.id.f_btn_account)
     void gotoAccount() {
@@ -64,12 +72,21 @@ public class HomeActivity extends BaseActivity implements HomeView {
         mRecyclerCategory.setLayoutManager(new GridLayoutManager(getApplicationContext(), 4, GridLayout.VERTICAL, false));
         mRecyclerCategory.setAdapter(mCategoryAdapter);
 
+        mRecyclerFeaturedProduct.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
+        mRecyclerFeaturedProduct.setAdapter(mFeaturedProductAdapter);
+
         mPresenter.fetchCategories();
+        mPresenter.fetchFeaturedProducts();
 
     }
 
     @Override
     public void showCategories(List<Category> categories) {
         mCategoryAdapter.addItems(categories);
+    }
+
+    @Override
+    public void showFeaturedProducts(List<Product> products) {
+        mFeaturedProductAdapter.addItems(products);
     }
 }

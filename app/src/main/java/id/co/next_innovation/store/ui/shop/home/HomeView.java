@@ -3,6 +3,7 @@ package id.co.next_innovation.store.ui.shop.home;
 import java.util.List;
 
 import id.co.next_innovation.store.data.db.model.Category;
+import id.co.next_innovation.store.data.db.model.Product;
 import id.co.next_innovation.store.ui.base.MvpView;
 
 /**
@@ -14,4 +15,6 @@ import id.co.next_innovation.store.ui.base.MvpView;
 public interface HomeView extends MvpView {
 
     void showCategories(List<Category> categories);
+
+    void showFeaturedProducts(List<Product> products);
 }

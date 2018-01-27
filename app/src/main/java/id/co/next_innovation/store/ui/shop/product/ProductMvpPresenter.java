@@ -1,5 +1,6 @@
-package id.co.next_innovation.store.ui.shop.home;
+package id.co.next_innovation.store.ui.shop.product;
 
+import id.co.next_innovation.store.data.db.model.Product;
 import id.co.next_innovation.store.ui.base.MvpPresenter;
 
 /**
@@ -8,8 +9,5 @@ import id.co.next_innovation.store.ui.base.MvpPresenter;
  * prohibited Proprietary and confidential
  * Written by Winnerawan T <winnerawan@gmail.com>, September 2017
  */
-public interface HomeMvpPresenter<V extends HomeView> extends MvpPresenter<V> {
-
-    void fetchCategories();
-    void fetchFeaturedProducts();
+public interface ProductMvpPresenter<V extends ProductView> extends MvpPresenter<V> {
 }

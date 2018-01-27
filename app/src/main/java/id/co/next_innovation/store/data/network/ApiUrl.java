@@ -21,10 +21,11 @@ public class ApiUrl {
     public native String invokeAuthUrl();
     public native String invokeRegistUrl();
     public native String invokeCategoriesUrl();
+    public native String invokeFeturedProductsUrl();
 
     public String signIn = new String(Base64.decode(invokeAuthUrl(), Base64.DEFAULT));
     public String signUp = new String(Base64.decode(invokeRegistUrl(), Base64.DEFAULT));
     public String categories = new String(Base64.decode(invokeCategoriesUrl(), Base64.DEFAULT));
-    public String insecureCool = "?&insecure=cool";
+    public String featuredProducts = new String(Base64.decode(invokeFeturedProductsUrl(), Base64.DEFAULT));
 
 }

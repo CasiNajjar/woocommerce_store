@@ -12,6 +12,10 @@ public class ProductRequest {
 
     }
 
+    public static class Featured {
+
+    }
+
     public static class Products {
 
     }

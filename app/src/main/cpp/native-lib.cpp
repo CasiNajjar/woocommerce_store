@@ -27,4 +27,9 @@ Java_id_co_next_1innovation_store_data_network_ApiUrl_invokeCategoriesUrl(JNIEnv
     // -> wp-json/wc/v2/products/categories
     return env->NewStringUTF("d3AtanNvbi93Yy92Mi9wcm9kdWN0cy9jYXRlZ29yaWVz");
 }
+JNIEXPORT jstring JNICALL
+Java_id_co_next_1innovation_store_data_network_ApiUrl_invokeFeturedProductsUrl(JNIEnv *env, jobject instance) {
+    // -> wp-json/wc/v2/products?featured=true
+    return env->NewStringUTF("d3AtanNvbi93Yy92Mi9wcm9kdWN0cz9mZWF0dXJlZD10cnVl");
+}
 }
