@@ -28,6 +28,29 @@ public class ProductDetailPresenter<V extends ProductDetailView> extends BasePre
     }
 
     @Override
+    public void fetchProductReviews(int product_id) {
+
+        getCompositeDisposable().add(getDataManager().getProductReviews(new ProductRequest.ProductDetail(product_id))
+                .subscribeOn(getSchedulerProvider().io())
+                .observeOn(getSchedulerProvider().ui())
+                .subscribe(productReviews -> {
+                    if (productReviews!=null) {
+                        getMvpView().showReviews(productReviews);
+                    }
+                }, throwable -> {
+                    if (!isViewAttached()) {
+                        return;
+                    }
+                    getMvpView().hideLoading();
+                    // handle the error here
+                    if (throwable instanceof ANError) {
+                        ANError anError = (ANError) throwable;
+                        handleApiError(anError);
+                    }
+                }));
+    }
+
+    @Override
     public void fetchProductDetail(int product_id) {
 
         getMvpView().showLoading();
@@ -42,7 +65,6 @@ public class ProductDetailPresenter<V extends ProductDetailView> extends BasePre
 
                     getMvpView().hideLoading();
                 }, throwable -> {
-                    AppLogger.e("err"+throwable.getMessage());
                     if (!isViewAttached()) {
                         return;
                     }
@@ -53,6 +75,8 @@ public class ProductDetailPresenter<V extends ProductDetailView> extends BasePre
                         handleApiError(anError);
                     }
                 }));
+
+
     }
 
 

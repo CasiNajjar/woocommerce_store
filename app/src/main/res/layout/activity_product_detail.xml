@@ -7,7 +7,6 @@
     <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="52.0dip"
         android:scrollbars="none">
 
         <RelativeLayout
@@ -71,26 +70,38 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <FrameLayout
-                android:id="@+id/image"
-                android:layout_width="fill_parent"
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/viewpager_image"
+                android:layout_width="match_parent"
                 android:layout_height="250.0dip"
                 android:layout_below="@id/linear1"
                 android:background="@color/White"
                 android:visibility="visible">
 
-                <ImageView
-                    android:id="@+id/product_image"
+                <me.relex.circleindicator.CircleIndicator
+                    android:id="@+id/indicator"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center" />
-            </FrameLayout>
+                    android:layout_height="48dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="bottom"
+                    android:padding="10dip"/>
+
+
+                <!--<ImageView-->
+                    <!--android:id="@+id/product_image"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_gravity="center" />-->
+            </android.support.v4.view.ViewPager>
+
 
             <LinearLayout
                 android:id="@+id/linear2"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/image"
+                android:layout_below="@id/viewpager_image"
                 android:background="@drawable/bg_strok"
                 android:orientation="vertical">
 
@@ -116,10 +127,10 @@
                             android:isIndicator="false" />
 
                         <TextView
+                            android:id="@+id/ratingcount"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="5.0dip"
-                            android:text="(1230)"
                             android:textColor="@color/textSub"
                             android:textSize="@dimen/textsub" />
                     </LinearLayout>
@@ -137,6 +148,9 @@
                         android:orientation="horizontal">
 
                         <TextView
+                            android:clickable="true"
+                            android:id="@+id/review"
+                            android:background="?attr/selectableItemBackground"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Reviews"
@@ -144,6 +158,7 @@
                             android:textSize="@dimen/textsub" />
 
                         <TextView
+                            android:id="@+id/reviewcount"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="5.0dip"
@@ -165,6 +180,7 @@
                         android:orientation="horizontal">
 
                         <TextView
+                            android:id="@+id/stock"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
@@ -244,7 +260,6 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Verified by Shoppy"
                             android:textColor="@color/light_green"
                             android:textSize="@dimen/textsub" />
                     </LinearLayout>
@@ -280,21 +295,24 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/product_guarantee_name"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:text="Shoppy Guarantee"
+                        android:text="@string/guarantee_leathercraft_original"
                         android:textColor="@color/Tex"
                         android:textSize="@dimen/text" />
 
                     <TextView
+                        android:id="@+id/product_guarantee_description"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10.0dip"
-                        android:text="100% Payment Protection. 7days easy return in case item is defective or damaged or different from what was described."
+                        android:text="@string/guarantee_lorem_ipsum"
                         android:textColor="@color/textSub"
                         android:textSize="@dimen/textsub" />
                 </LinearLayout>
             </LinearLayout>
+
 
             <LinearLayout
                 android:id="@+id/linear5"
@@ -315,7 +333,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/locationpin" />
+                        android:src="@drawable/guard" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -327,208 +345,171 @@
                     <TextView
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:text="Specify pincode to find delivery at your location"
+                        android:text="@string/product_description"
                         android:textColor="@color/Tex"
                         android:textSize="@dimen/text" />
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="left"
-                        android:layout_marginTop="16.0dip"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1.0"
-                            android:text="Pincode :"
-                            android:textColor="@color/textSub"
-                            android:textSize="@dimen/textsub" />
-
-                        <TextView
-                            android:id="@+id/changeno"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="6.0dip"
-                            android:layout_weight="1.0"
-                            android:text="@string/code"
-                            android:textColor="@color/textSub"
-                            android:textSize="@dimen/textsub" />
-
-                        <TextView
-                            android:id="@+id/change"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="16.0dip"
-                            android:layout_weight="1.0"
-                            android:background="@drawable/changebg"
-                            android:gravity="center"
-                            android:paddingBottom="4.0dip"
-                            android:paddingLeft="7.0dip"
-                            android:paddingRight="7.0dip"
-                            android:paddingTop="4.0dip"
-                            android:text="Change"
-                            android:textColor="@color/White"
-                            android:textSize="@dimen/textsub" />
-                    </LinearLayout>
-
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:id="@+id/product_description"
+                        android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="16.0dip"
-                        android:drawableLeft="@drawable/checked"
-                        android:drawablePadding="6.0dip"
-                        android:text="Item is available on this pincode"
-                        android:textColor="@color/textSub"
-                        android:textSize="@dimen/textsub" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="6.0dip"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:drawableLeft="@drawable/checked"
-                            android:drawablePadding="6.0dip"
-                            android:text="Delivered in 2 -4 days"
-                            android:textColor="@color/textSub"
-                            android:textSize="@dimen/textsub" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="6.0dip"
-                            android:text="+ 30 Rs"
-                            android:textColor="@color/red"
-                            android:textSize="@dimen/textsub" />
-                    </LinearLayout>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="6.0dip"
-                        android:drawableLeft="@drawable/checked"
-                        android:drawablePadding="6.0dip"
-                        android:text="Cash On Delivery available"
+                        android:layout_marginTop="10.0dip"
                         android:textColor="@color/textSub"
                         android:textSize="@dimen/textsub" />
                 </LinearLayout>
             </LinearLayout>
 
+
             <LinearLayout
-                android:id="@+id/linear6"
+                android:id="@+id/linear7"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/linear5"
                 android:layout_marginTop="16.0dip"
                 android:background="@drawable/bg_strok"
-                android:orientation="horizontal"
-                android:padding="16.0dip">
+                android:orientation="vertical"
+                android:padding="8.0dip">
 
-                <LinearLayout
+                <TextView
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.07"
-                    android:orientation="vertical">
+                    android:text="@string/product_reviews"
+                    android:textColor="@color/Tex"
+                    android:textSize="@dimen/text" />
 
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Item Details"
-                        android:textColor="@color/Tex"
-                        android:textSize="@dimen/text" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16.0dip"
-                        android:drawablePadding="6.0dip"
-                        android:text="- 3GB DDR3 RAM + 16 GB ROM"
-                        android:textColor="@color/textSub"
-                        android:textSize="@dimen/textsub" />
+                <android.support.v7.widget.RecyclerView
+                    android:layout_marginTop="8dp"
+                    android:id="@+id/recycler_reviews"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="3.0dip"
-                        android:drawablePadding="6.0dip"
-                        android:text="- Screen Size : 12.7 cm (5) HD Display- 4G LTE"
-                        android:textColor="@color/textSub"
-                        android:textSize="@dimen/textsub" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="3.0dip"
-                        android:drawablePadding="6.0dip"
-                        android:text="- 1 GHz Quad Core Processor"
-                        android:textColor="@color/textSub"
-                        android:textSize="@dimen/textsub" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="3.0dip"
-                        android:drawablePadding="6.0dip"
-                        android:text="- 1 Year Manufacturer Warranty"
-                        android:textColor="@color/textSub"
-                        android:textSize="@dimen/textsub" />
-
-                    <LinearLayout
-                        android:background="?attr/selectableItemBackground"
-                        android:id="@+id/save"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/linear3"
-                        android:layout_marginTop="0.0dip"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/viewMore"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="right"
-                            android:background="@drawable/view_more_bg"
-                            android:gravity="center"
-                            android:paddingBottom="6.0dip"
-                            android:paddingLeft="15.0dip"
-                            android:paddingRight="15.0dip"
-                            android:paddingTop="6.0dip"
-                            android:text="View More"
-                            android:textColor="@color/White"
-                            android:textSize="@dimen/textsub" />
-                    </LinearLayout>
-                </LinearLayout>
+                </android.support.v7.widget.RecyclerView>
             </LinearLayout>
+
+
+
+
+            <!--<LinearLayout-->
+                <!--android:id="@+id/linear6"-->
+                <!--android:layout_width="fill_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_below="@id/linear5"-->
+                <!--android:layout_marginTop="16.0dip"-->
+                <!--android:background="@drawable/bg_strok"-->
+                <!--android:orientation="horizontal"-->
+                <!--android:padding="16.0dip">-->
+
+                <!--<LinearLayout-->
+                    <!--android:layout_width="fill_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_weight="0.07"-->
+                    <!--android:orientation="vertical">-->
+
+                    <!--<TextView-->
+                        <!--android:layout_width="fill_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:text="Item Details"-->
+                        <!--android:textColor="@color/Tex"-->
+                        <!--android:textSize="@dimen/text" />-->
+
+                    <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginTop="16.0dip"-->
+                        <!--android:drawablePadding="6.0dip"-->
+                        <!--android:text="- 3GB DDR3 RAM + 16 GB ROM"-->
+                        <!--android:textColor="@color/textSub"-->
+                        <!--android:textSize="@dimen/textsub" />-->
+
+                    <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginTop="3.0dip"-->
+                        <!--android:drawablePadding="6.0dip"-->
+                        <!--android:text="- Screen Size : 12.7 cm (5) HD Display- 4G LTE"-->
+                        <!--android:textColor="@color/textSub"-->
+                        <!--android:textSize="@dimen/textsub" />-->
+
+                    <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginTop="3.0dip"-->
+                        <!--android:drawablePadding="6.0dip"-->
+                        <!--android:text="- 1 GHz Quad Core Processor"-->
+                        <!--android:textColor="@color/textSub"-->
+                        <!--android:textSize="@dimen/textsub" />-->
+
+                    <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginTop="3.0dip"-->
+                        <!--android:drawablePadding="6.0dip"-->
+                        <!--android:text="- 1 Year Manufacturer Warranty"-->
+                        <!--android:textColor="@color/textSub"-->
+                        <!--android:textSize="@dimen/textsub" />-->
+
+                    <!--<LinearLayout-->
+                        <!--android:background="?attr/selectableItemBackground"-->
+                        <!--android:id="@+id/save"-->
+                        <!--android:paddingTop="2dp"-->
+                        <!--android:paddingBottom="2dp"-->
+                        <!--android:layout_width="fill_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_below="@id/linear3"-->
+                        <!--android:layout_marginTop="0.0dip"-->
+                        <!--android:orientation="vertical">-->
+
+                        <!--<LinearLayout-->
+                            <!--android:background="?attr/selectableItemBackground"-->
+                            <!--android:clickable="true"-->
+                            <!--android:paddingTop="2dp"-->
+                            <!--android:paddingBottom="2dp"-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_gravity="end|right"-->
+                            <!--android:layout_height="@dimen/height_28dp">-->
+                        <!--<Button-->
+                            <!--android:background="@drawable/view_more_bg"-->
+
+                            <!--android:id="@+id/viewMore"-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_gravity="end|right"-->
+                            <!--android:gravity="center"-->
+                            <!--android:paddingLeft="15.0dip"-->
+                            <!--android:paddingRight="15.0dip"-->
+                            <!--android:text="View More"-->
+                            <!--android:textColor="@color/White"-->
+                            <!--android:textSize="12sp" />-->
+                        <!--</LinearLayout>-->
+                    <!--</LinearLayout>-->
+                <!--</LinearLayout>-->
+            <!--</LinearLayout>-->
 
             <TextView
                 android:id="@+id/peopviewed"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/linear6"
+                android:layout_below="@id/linear7"
                 android:layout_marginLeft="6.0dip"
                 android:layout_marginTop="21.0dip"
-                android:text="Grooming Products"
+                android:text="@string/related_products"
                 android:textColor="@color/Tex"
                 android:textSize="16.0dip" />
 
             <android.support.v7.widget.RecyclerView
-                android:id="@+id/rv2"
+                android:id="@+id/recycler_related_products"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/peopviewed"
-                android:layout_marginBottom="25.0dip"
                 android:layout_marginTop="10.0dip" />
 
             <View
                 android:id="@+id/div9"
                 android:layout_width="fill_parent"
                 android:layout_height="1.0dip"
-                android:layout_below="@id/rv2"
+                android:layout_below="@id/recycler_related_products"
                 android:layout_marginTop="36.0dip"
                 android:background="@color/strok" />
         </RelativeLayout>
@@ -556,16 +537,16 @@
         android:orientation="vertical">
 
         <LinearLayout
-            android:background="?attr/selectableItemBackground"
+            android:background="@drawable/oneside_roundrect"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/oneside_roundrect"
             android:paddingBottom="10.0dip"
             android:paddingLeft="14.0dip"
+            android:background="?attr/selectableItemBackground"
             android:paddingRight="14.0dip"
             android:paddingTop="10.0dip"
             android:text="ADD TO CART"

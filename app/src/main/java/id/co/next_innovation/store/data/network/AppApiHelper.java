@@ -15,6 +15,7 @@ import dagger.Provides;
 import id.co.next_innovation.store.data.db.model.Category;
 import id.co.next_innovation.store.data.db.model.Product;
 import id.co.next_innovation.store.data.db.model.ProductDetail;
+import id.co.next_innovation.store.data.db.model.Review;
 import id.co.next_innovation.store.data.network.model.CategoryResponse;
 import id.co.next_innovation.store.data.network.model.ProductRequest;
 import id.co.next_innovation.store.data.network.model.SignRequest;
@@ -106,5 +107,12 @@ public class AppApiHelper implements ApiHelper {
         return Rx2AndroidNetworking.get(getDecodeUrl() + getApiUrl().products+"/"+ request.getProduct_id())
                 .build()
                 .getObjectObservable(ProductDetail.class);
+    }
+
+    @Override
+    public Observable<List<Review>> getProductReviews(ProductRequest.ProductDetail request) {
+        return Rx2AndroidNetworking.get(getDecodeUrl() + getApiUrl().products +"/"+ request.getProduct_id() + "/reviews")
+                .build()
+                .getObjectListObservable(Review.class);
     }
 }

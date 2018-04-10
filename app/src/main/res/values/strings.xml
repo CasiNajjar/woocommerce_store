@@ -24,4 +24,11 @@
     <string name="message_agree_term_conds">You must agree Term &amp; Conditions</string>
     <string name="code"><u>code</u></string>
     <string name="product_detail">Product Detail</string>
+    <string name="guarantee_leathercraft_original">Kulit Magetan Asli</string>
+    <string name="guarantee_lorem_ipsum">100% Payment Protection. 7days easy return in case item is defective or damaged or different from what was described.</string>
+    <string name="product_description">Product Description</string>
+    <string name="in_stock">In Stock</string>
+    <string name="out_stock">Out Stock</string>
+    <string name="related_products">Related Products</string>
+    <string name="product_reviews">Product Reviews</string>
 </resources>

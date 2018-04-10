@@ -35,7 +35,7 @@ public class HomePresenter<V extends HomeView> extends BasePresenter<V> implemen
 
     @Override
     public void fetchCategories() {
-        //getMvpView().showLoading();
+        getMvpView().showLoading();
 
         getCompositeDisposable().add(getDataManager().getCategories(new ProductRequest.Categories())
                 .observeOn(getSchedulerProvider().ui())

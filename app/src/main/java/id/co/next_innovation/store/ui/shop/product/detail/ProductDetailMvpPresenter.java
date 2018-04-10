@@ -11,4 +11,6 @@ import id.co.next_innovation.store.ui.base.MvpPresenter;
 public interface ProductDetailMvpPresenter<V extends ProductDetailView> extends MvpPresenter<V> {
 
     void fetchProductDetail(int product_id);
+
+    void fetchProductReviews(int product_id);
 }

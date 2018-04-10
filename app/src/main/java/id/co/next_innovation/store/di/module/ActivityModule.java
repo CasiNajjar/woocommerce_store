@@ -28,6 +28,11 @@ import id.co.next_innovation.store.ui.shop.product.ProductView;
 import id.co.next_innovation.store.ui.shop.product.detail.ProductDetailMvpPresenter;
 import id.co.next_innovation.store.ui.shop.product.detail.ProductDetailPresenter;
 import id.co.next_innovation.store.ui.shop.product.detail.ProductDetailView;
+import id.co.next_innovation.store.ui.shop.product.detail.ProductReviewAdapter;
+import id.co.next_innovation.store.ui.shop.product.detail.images.DetailImageActivity;
+import id.co.next_innovation.store.ui.shop.product.detail.images.DetailImageMvpPresenter;
+import id.co.next_innovation.store.ui.shop.product.detail.images.DetailImagePresenter;
+import id.co.next_innovation.store.ui.shop.product.detail.images.DetailImageView;
 import id.co.next_innovation.store.ui.sign.in.SignInMvpPresenter;
 import id.co.next_innovation.store.ui.sign.in.SignInPresenter;
 import id.co.next_innovation.store.ui.sign.in.SignInView;
@@ -146,6 +151,18 @@ public class ActivityModule {
     ProductDetailMvpPresenter<ProductDetailView> provideProductDetailPresenter(
             ProductDetailPresenter<ProductDetailView> presenter) {
         return presenter;
+    }
+
+    @Provides
+    @PerActivity
+    DetailImageMvpPresenter<DetailImageView> provideDetailImagePresenter(
+            DetailImagePresenter<DetailImageView> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    ProductReviewAdapter provideProductReviewsAdapter() {
+        return new ProductReviewAdapter(new ArrayList<>());
     }
 
 }

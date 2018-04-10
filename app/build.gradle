@@ -123,6 +123,8 @@ dependencies {
     compile 'se.akerfeldt:okhttp-signpost:1.1.0'
     compile 'com.squareup.okhttp3:okhttp:3.7.0'
     compile 'oauth.signpost:signpost-core:1.2.1.2'
+    compile 'me.relex:circleindicator:1.2.2@aar'
+
     //compile 'com.github.Yalantis:SearchFilter:v1.0.4'
     //Optional: see how to use the utility.
     //compile 'com.ogaclejapan.smarttablayout:utils-v13:1.6.1@aar'
