@@ -2,7 +2,28 @@
 
 ![logo](https://scontent-sin6-2.xx.fbcdn.net/v/t1.0-9/30582371_800369220153508_4665458253059063808_n.png?_nc_cat=0&_nc_eui2=v1%3AAeHr-tWF3FcOo6fwNiJD5mOgVYnTbjwI5XUP9FpliBAlSkVvWsAzIaIegN_-MHDW07bNxkW_ag5W6wedSPXuel0qBb6MG7sWjvVSu9y0VM_6Ow&oh=f1f0fff155736dff5b0498ce85a983b8&oe=5B686282)
 
-```java  
-Copyright © 2018 Winnerawan T
+```license
+MIT License
+
+Copyright (c) [2018] [Winnerawan T]
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 ```
+
 Logo By [Nazmul Hasan](https://www.facebook.com/nazmul.hasan.94651774)
